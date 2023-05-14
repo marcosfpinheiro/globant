@@ -9,18 +9,25 @@
 
         <title>Upload file</title>
     </head>
-
     <body>
-
-        <div class="container">
-
-            <div class="card text-center">
-                <div class="card-header">
-                    File uploaded
-                </div>
-            </div>
-            <button class="btn btn-primary hBack" type="button" onclick="history.back()">Back</button>
-        </div>
+           <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Department</th>
+                        <th scope="col">Hired</th>
+                    </tr>
+                </thead>
+                <tbody>
+{% for dep in departments %}
+<tr class="pointer">
+<td>{{dep.department_id}}</td>
+<td>{{dep.department}}</td>
+<td>{{dep.hired}}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
         <script src="{{ url_for('static', path='/upload/js/jquery-slim.js') }}"></script>
         <script src="{{ url_for('static', path='/upload/js/popper.js') }}"></script>
         <script src="{{ url_for('static', path='/upload/js/bootstrap.js') }}"></script>
