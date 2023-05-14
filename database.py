@@ -6,7 +6,8 @@ SQLALCHEMY_DATABASE_URL="postgresql://postgres:123456@127.0.0.01:5432/TodoApplic
 
 
 engine=create_engine(
-    SQLALCHEMY_DATABASE_URL
+    SQLALCHEMY_DATABASE_URL,
+    client_encoding='utf-8'
 )
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
