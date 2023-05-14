@@ -24,11 +24,11 @@ def get_db():
         db.close()
 
 
-@router.get("/upload_csv")
+@router.get("/")
 async def upload_file(request: Request):
     return templates.TemplateResponse("upload.html", {"request": request})
 
-@router.post("/upload_csv")
+@router.post("/")
 async def load_file(request: Request, 
                     upload_file: UploadFile = File(...), 
                     type_file: str = Form(...),
