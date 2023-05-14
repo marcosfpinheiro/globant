@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/todo/css/base.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/todo/css/bootstrap.css') }}">
+        <meta charset="UTF-8">
+        <meta name="viewport" content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+
+        <title>Upload file</title>
+    </head>
+
+    <body>
+
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    Upload files
+                </div>
+
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label>Select file for load table (csv format)</label>
+                            <input type="file" class="form-control" name="upload_file" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Table</label>
+                            <select name="type_file" class="form-control">
+                                <option value=departments>Departments</option>
+                                <option value=hired_employees>Employees</option>
+                                <option value=jobs>Jobs</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Historical or Batch?</label>
+                            <select name="type_load" class="form-control">
+                                <option value=append>Batch</option>
+                                <option value=replace>Historical</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Load file into table</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="{{ url_for('static', path='/todo/js/jquery-slim.js') }}"></script>
+        <script src="{{ url_for('static', path='/todo/js/popper.js') }}"></script>
+        <script src="{{ url_for('static', path='/todo/js/bootstrap.js') }}"></script>
+    </body>
+
+</html>
