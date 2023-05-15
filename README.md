@@ -18,4 +18,11 @@ Globant Code Challenge
 - Finished development for Upload files
 - Developed metrics
 
+2023/05/15 - Migration to Docker
+- Deployed application in a docker called hr-app
+- PostgreSQL in another docker 
+- Built docker-compose file
+
+
+
 

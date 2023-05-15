@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/upload/css/base.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/upload/css/bootstrap.css') }}">
+        <meta charset="UTF-8">
+        <meta name="viewport" content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+
+        <title>Employees metrics</title>
+    </head>
+    <div class="container">
+        <div class="card text-center">
+            <div class="card-header">
+                Employees metrics
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Employees hired</h5>
+                <p class="card-text">Number of employees hired of each department that hired more
+                    employees than the mean of employees hired in 2021 </p>
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">Department</th>
+                            <th scope="col">Hired</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for dep in departments %}
+                        <tr class="pointer">
+                            <td>{{dep.department_id}}</td>
+                            <td>{{dep.department}}</td>
+                            <td>{{dep.hired}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <a class="btn btn-primary" href="/upload">Upload Files</a>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', path='/upload/js/jquery-slim.js') }}"></script>
+    <script src="{{ url_for('static', path='/upload/js/popper.js') }}"></script>
+    <script src="{{ url_for('static', path='/upload/js/bootstrap.js') }}"></script>
+    </body>
+
+</html>

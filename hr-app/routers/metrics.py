@@ -55,7 +55,9 @@ order by hired desc'''))
 
 @router.get("/empl", response_class=HTMLResponse)
 async def list_employees_hired_quarter(request: Request, db: Session = Depends(get_db)):
-    employees = db.execute(text('''SELECT ct.department, ct.jobs, coalesce(ct.Q1,0) as Q1, coalesce(ct.Q2,0) as Q2, coalesce(ct.Q3,0) as Q3, coalesce(ct.Q4,0) as Q4
+    employees = db.execute(text('''
+	CREATE EXTENSION IF NOT EXISTS tablefunc;
+	SELECT ct.department, ct.jobs, coalesce(ct.Q1,0) as Q1, coalesce(ct.Q2,0) as Q2, coalesce(ct.Q3,0) as Q3, coalesce(ct.Q4,0) as Q4
 FROM crosstab (
     'select 
 		dep.department,
